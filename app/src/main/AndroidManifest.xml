@@ -46,10 +46,10 @@
             android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".Features"
+            android:name=".About"
             android:exported="false" />
         <activity
-            android:name=".About"
+            android:name=".Features"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

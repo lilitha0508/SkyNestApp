@@ -7,9 +7,7 @@ import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
-import android.media.MediaPlayer.OnCompletionListener
 import android.os.AsyncTask
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -17,7 +15,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -40,7 +38,6 @@ import java.io.InputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
-import kotlin.jvm.Throws
 
 class Hotspots : AppCompatActivity(), OnMapReadyCallback {
 
@@ -88,7 +85,7 @@ class Hotspots : AppCompatActivity(), OnMapReadyCallback {
         ) != PackageManager.PERMISSION_GRANTED) {
             return
         }
-        mMap!!.setMyLocationEnabled(true)
+        mMap!!.isMyLocationEnabled = true
 
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -179,7 +176,7 @@ class Hotspots : AppCompatActivity(), OnMapReadyCallback {
 
                     Toast.makeText(this@Hotspots, "Distance = $str miles", Toast.LENGTH_SHORT).show()
 
-                    foundAddress.setText("Distance = $str miles")
+                    foundAddress.text = "Distance = $str miles"
 
                    // val url: String = getDirectionsUrl(origin!!.position, destination!!.position)!!
                     //val downloadTask: DownloadTask = DownloadTask()
@@ -265,7 +262,7 @@ class Hotspots : AppCompatActivity(), OnMapReadyCallback {
 
                     Toast.makeText(this@Hotspots, "Distance = $str KM", Toast.LENGTH_SHORT).show()
 
-                    foundAddress!!.setText("Distance = $str KM")
+                    foundAddress.text = "Distance = $str KM"
 
                     /*val url: String = getDirectionsUrl(origin!!.position, destination!!.position)!!
                     val downloadTask: DownloadTask = DownloadTask()
@@ -342,7 +339,7 @@ class Hotspots : AppCompatActivity(), OnMapReadyCallback {
      * A method to download json data from url
      */
     @Throws(IOException::class)
-    private  fun downloadUrl(strUrl: String): String? {
+    private  fun downloadUrl(strUrl: String): String {
         var  data = ""
         var iStream: InputStream? = null
         var urlConnection: HttpURLConnection? = null
@@ -350,7 +347,7 @@ class Hotspots : AppCompatActivity(), OnMapReadyCallback {
             val url = URL(strUrl)
             urlConnection = url.openConnection() as HttpURLConnection
             urlConnection.connect()
-            iStream = urlConnection!!.inputStream
+            iStream = urlConnection.inputStream
             val br = BufferedReader(InputStreamReader(iStream))
             val sb = StringBuffer()
             var line: String? = ""
@@ -373,7 +370,7 @@ class Hotspots : AppCompatActivity(), OnMapReadyCallback {
     }
 
     //--------------------------------------------------------------------------------------------------------------------
-    private fun getDirectionsUrl(origin: LatLng, dest: LatLng): String? {
+    private fun getDirectionsUrl(origin: LatLng, dest: LatLng): String {
         //Origin of the route
         val str_origin = "origin=" + origin.latitude + "," + origin.longitude
 
@@ -399,7 +396,7 @@ class Hotspots : AppCompatActivity(), OnMapReadyCallback {
             val client = OkHttpClient()
             val request = Request.Builder().url(url).build()
             val response = client.newCall(request).execute()
-            val data = response.body()!!.string()
+            val data = response.body!!.string()
             Log.d("GoogleMap", "data : $data")
             val result = ArrayList<List<LatLng>>()
 
@@ -481,13 +478,13 @@ class Hotspots : AppCompatActivity(), OnMapReadyCallback {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this@Hotspots)
 
         try{
-            val location =  fusedLocationClient!!.getLastLocation()
+            val location =  fusedLocationClient!!.lastLocation
 
             location.addOnCompleteListener(object : OnCompleteListener<Location> {
                 override fun onComplete(loc: Task<Location>) {
                     if (loc.isSuccessful) {
 
-                        val currentLocation = loc.result as Location?
+                        val currentLocation = loc.result
                         if (currentLocation != null) {
                             moveCamera(
                                 LatLng(currentLocation.latitude, currentLocation.longitude),
@@ -522,7 +519,7 @@ class Hotspots : AppCompatActivity(), OnMapReadyCallback {
         mMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom))
     }
     //--------------------------------------------------------------------------------------------------------------------
-    public fun decodePolyline(encoded: String): List<LatLng> {
+    fun decodePolyline(encoded: String): List<LatLng> {
 
         val poly = ArrayList<LatLng>()
         var index = 0
@@ -535,7 +532,7 @@ class Hotspots : AppCompatActivity(), OnMapReadyCallback {
             var shift = 0
             var result = 0
             do {
-                b = encoded[index++].toInt() - 63
+                b = encoded[index++].code - 63
                 result = result or (b and 0x1f shl shift)
                 shift += 5
             } while (b >= 0x20)
@@ -545,7 +542,7 @@ class Hotspots : AppCompatActivity(), OnMapReadyCallback {
             shift = 0
             result = 0
             do {
-                b = encoded[index++].toInt() - 63
+                b = encoded[index++].code - 63
                 result = result or (b and 0x1f shl shift)
                 shift += 5
             } while (b >= 0x20)

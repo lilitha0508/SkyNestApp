@@ -14,4 +14,8 @@
     <string name="signout">Sign Out</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="level1" />
+    <string name="favourite" />
+    <string name="profile" />
+    <string name="home" />
 </resources>
