@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/birds3"
+    android:orientation="vertical"
+    tools:context=".birdPager1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/tvVPWelcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tvVPWelcomeText"
+            android:layout_marginBottom="10dp"
+            android:text="Welcome"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="45dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvVPWelcomeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="80dp"
+            android:text="SkyNest the app that makes bird watching fun and saves all records for personal enjoyment"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</FrameLayout>

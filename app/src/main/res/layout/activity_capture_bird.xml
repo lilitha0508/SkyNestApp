@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4b6f11"
+    tools:context=".CaptureBird">
+
+    <TextView
+        android:id="@+id/tvCapHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/abeezee"
+        android:text="Bird Observation"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/lay_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvCapHead"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:outlineProvider="paddedBounds">
+
+        <ImageView
+            android:id="@+id/ivCapImage"
+            android:layout_width="330dp"
+            android:layout_height="250dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="35dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <EditText
+            android:id="@+id/tvCapName"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="35dp"
+            android:autofillHints="name"
+            android:background="@drawable/back_boarder"
+            android:drawablePadding="8dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="8dp"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/tvCapDate"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="35dp"
+            android:autofillHints="Date"
+            android:background="@drawable/back_boarder"
+            android:drawablePadding="8dp"
+            android:ems="10"
+            android:hint="Date"
+            android:inputType="date"
+            android:minHeight="48dp"
+            android:padding="8dp"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/tvCapAmount"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="35dp"
+            android:autofillHints="Amount"
+            android:background="@drawable/back_boarder"
+            android:drawablePadding="8dp"
+            android:ems="10"
+            android:hint="How Many"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="8dp"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btnCapture"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#7EAE25"
+            android:fontFamily="@font/abeezee"
+            android:text="Capture"
+            android:onClick="btnCapture"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:cornerRadius="30dp" />
+    </LinearLayout>
+
+</RelativeLayout>

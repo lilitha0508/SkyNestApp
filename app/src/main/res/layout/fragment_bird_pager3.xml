@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/birds2"
+    tools:context=".birdPager3">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvVPHeadingFeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ivGuide"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="Features"
+            android:textColor="@color/white"
+            android:textSize="35dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivGuide"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:layout_above="@+id/lblGuide"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/icons8_open_book_64" />
+
+        <TextView
+            android:id="@+id/lblGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tvFieldGuideMessage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:text="Field Guide"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvFieldGuideMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ivBirdSpots"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="Field Guide helpful to understand what bird you may be seeing and the information important for understanding the bird and its habits"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivBirdSpots"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:layout_above="@+id/lblHotspot"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/icons8_location_50" />
+
+        <TextView
+            android:id="@+id/lblHotspot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tvHotspotMessage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:text="Bird Hotspots"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvHotspotMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ivCapture"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="The App comes with built in hotspot location for bird watchers to know areas that the birds are often found in according to data"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivCapture"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:layout_above="@+id/lblCapture"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/icons8_camera_50" />
+
+        <TextView
+            android:id="@+id/lblCapture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tvCaptureMessage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:text="Capture"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCaptureMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="80dp"
+            android:text="SkyNest allows you to capture pictures of your favorite birds and stores them in a gallery for you, there you can access your favourite picture"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</FrameLayout>

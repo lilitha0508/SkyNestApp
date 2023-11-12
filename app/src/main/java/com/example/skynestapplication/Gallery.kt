@@ -1,20 +1,62 @@
 package com.example.skynestapplication
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.widget.GridView
+import android.util.Base64
+import androidx.appcompat.app.AppCompatActivity
+import com.example.skynestapplication.databinding.ActivityGalleryBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class Gallery : AppCompatActivity() {
+
+    private lateinit var db: DatabaseReference
+    private lateinit var binding: ActivityGalleryBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gallery)
+        binding = ActivityGalleryBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val gridView = findViewById<GridView>(R.id.galBird)
-        val imageIds = intArrayOf(
-            // Add code for images in the database
-        )
+        db = FirebaseDatabase.getInstance().getReference("images")
 
-        val adapter = ImageAdapter(this, imageIds)
-        gridView.adapter = adapter
+        val gridView = binding.galBird
+
+        // Retrieve images from Firebase
+        db.orderByKey().addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val imageList = mutableListOf<Bitmap>()
+
+                for (childSnapshot in dataSnapshot.children) {
+                    val imageData: String? =
+                        childSnapshot.child("imageData").getValue(String::class.java)
+
+                    // Check if imageData is not null
+                    if (imageData != null) {
+                        val bitmap: Bitmap = decodeBase64(imageData)
+                        imageList.add(bitmap)
+                    }
+                }
+
+                // Convert the list of bitmaps to an array of imageIds
+                val images = imageList.toTypedArray()
+
+                val adapter = ImageAdapter(this@Gallery, images)
+                gridView.adapter = adapter
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Handle errors if needed
+            }
+        })
+    }
+
+    private fun decodeBase64(input: String): Bitmap {
+        val decodedBytes = Base64.decode(input, Base64.DEFAULT)
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
     }
 }

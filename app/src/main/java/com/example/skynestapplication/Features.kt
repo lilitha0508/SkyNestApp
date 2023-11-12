@@ -4,47 +4,34 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
+import me.relex.circleindicator.CircleIndicator3
 
 class Features : AppCompatActivity() {
 
-    private lateinit var backgroundImageView: ImageView
     private lateinit var btnSkip: Button
-    private lateinit var tvMessage: TextView
-    private var imageIndex = 1
-    private var stringIndex = 1
-    private val imageArray = intArrayOf(R.drawable.birds1, R.drawable.birds2, R.drawable.birds3)
-    private val stringArray = arrayOf(
-        "Welcome to SkyNest",
-        "Skynest is an Interactive app that helps bring bird loves together",
-        "Skynest has featues like a field Guide, Bird Hotspts and the ability to capture these beatiful creaturs"
-    )
-
+    private lateinit var indicator: CircleIndicator3
+    private lateinit var vpSlide: ViewPager2
+    private lateinit var adapter: featureAdapter
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_features)
 
-        backgroundImageView = findViewById(R.id.backgroundImageView)
         btnSkip = findViewById(R.id.btnSkip)
-        tvMessage = findViewById(R.id.tvMessage)
+        indicator = findViewById(R.id.indicator)
+        vpSlide = findViewById(R.id.vpSlide)
 
-        backgroundImageView.setOnClickListener {
-            // Change the background image
-            imageIndex = (imageIndex + 1) % imageArray.size
-            backgroundImageView.setImageResource(imageArray[imageIndex])
+        adapter = featureAdapter(supportFragmentManager, lifecycle)
 
-            stringIndex =(stringIndex + 1) % stringArray.size
-            tvMessage.text = stringArray[stringIndex]
+        vpSlide.adapter = adapter
+        indicator.setViewPager(vpSlide)
 
-
-            btnSkip.setOnClickListener {
-                val intent = Intent(this, Login::class.java)
-                startActivity(intent)
-            }
+        btnSkip.setOnClickListener {
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
         }
     }
 }

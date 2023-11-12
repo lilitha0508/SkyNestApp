@@ -1,20 +1,22 @@
 package com.example.skynestapplication
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.BaseAdapter
 import android.widget.ImageView
 
-class ImageAdapter(private val context: Context, private val imageIds: IntArray) : BaseAdapter() {
+class ImageAdapter(private val context: Context, private val images: Array<Bitmap>) :
+    BaseAdapter() {
 
     override fun getCount(): Int {
-        return imageIds.size
+        return images.size
     }
 
     override fun getItem(position: Int): Any {
-        return imageIds[position]
+        return images[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -23,7 +25,8 @@ class ImageAdapter(private val context: Context, private val imageIds: IntArray)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val imageView = ImageView(context)
-        imageView.setImageResource(imageIds[position])
+        imageView.setImageBitmap(images[position])
+        imageView.scaleType = ImageView.ScaleType.CENTER_CROP
         imageView.layoutParams = AbsListView.LayoutParams(250, 250) // Set image size
         return imageView
     }
