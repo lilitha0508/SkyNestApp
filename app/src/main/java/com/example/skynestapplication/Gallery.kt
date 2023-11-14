@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
+import android.util.Base64.decode
 import androidx.appcompat.app.AppCompatActivity
 import com.example.skynestapplication.databinding.ActivityGalleryBinding
 import com.google.firebase.database.DataSnapshot
@@ -42,21 +43,23 @@ class Gallery : AppCompatActivity() {
                     }
                 }
 
-                // Convert the list of bitmaps to an array of imageIds
+                // Convert the list of bitmaps to an array of images
                 val images = imageList.toTypedArray()
 
                 val adapter = ImageAdapter(this@Gallery, images)
                 gridView.adapter = adapter
             }
 
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Handle errors if needed
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
             }
         })
     }
 
+    //---------------------------------------------------------------------------------------------------
     private fun decodeBase64(input: String): Bitmap {
-        val decodedBytes = Base64.decode(input, Base64.DEFAULT)
+        val decodedBytes = decode(input, Base64.DEFAULT)
         return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
     }
+    //---------------------------------------------------------------------------------------------------
 }

@@ -98,8 +98,7 @@ class HomeDashboard : AppCompatActivity() {
                 db.child(modelId!!).setValue(model)
                 Toast.makeText(this@HomeDashboard, "Uploaded Successfully", Toast.LENGTH_SHORT)
                     .show()
-                // If you have ivCapImage in pictureBinding, you can set it there
-                // pictureBinding.ivCapImage.setImageResource(R.drawable.img_bird1)
+
             }
         }
     }
