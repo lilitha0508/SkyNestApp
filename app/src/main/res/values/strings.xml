@@ -2,7 +2,8 @@
     <string name="app_name">Sky Nest</string>
     <string name="achieve">Achievement</string>
     <string name="guide">Field Guide</string>
-    <string name="photo">Take Photo</string>
+    <string name="guides">Guide</string>
+    <string name="photo">Camera</string>
     <string name="hotspots">Bird Hotspots</string>
     <string name="gallery">Gallery</string>
     <string name="login">Login</string>
@@ -14,8 +15,12 @@
     <string name="signout">Sign Out</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="level1" />
-    <string name="favourite" />
-    <string name="profile" />
-    <string name="home" />
+    <string name="favourite">Favourites</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="level1">Newbie</string>
+    <string name="level2">Beginner</string>
+    <string name="level3">Intermediate</string>
+    <string name="level4">Pro</string>
+    <string name="level5">Expert</string>
 </resources>

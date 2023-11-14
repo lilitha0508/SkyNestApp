@@ -64,7 +64,7 @@
                     android:layout_height="60dp"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/abeezee"
-                    android:text="0 of 30 Observations"
+                    android:text="0 Observations"
                     android:textAlignment="center"
                     android:textColor="#305C15"
                     android:textSize="25sp"
@@ -141,7 +141,7 @@
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/iv_hotsopt"
+                    android:id="@+id/iv_hotspot"
                     android:layout_width="94dp"
                     android:layout_height="70dp"
                     android:contentDescription="@string/hotspots"

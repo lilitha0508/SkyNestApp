@@ -15,12 +15,23 @@
         android:visibility="visible"
         android:orientation="horizontal">
 
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/extended_home"
+            style="?attr/floatingActionButtonSmallStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#032501"
+            android:contentDescription="@string/home"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:icon="@drawable/baseline_home_24"
+            app:iconTint="#3FFF01" />
 
         <EditText
             android:id="@+id/et_location"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
             android:textColor="@color/black"
             android:background="@color/white"
             android:fontFamily="@font/abeezee"
@@ -34,6 +45,7 @@
             android:layout_width="78dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="2dp"
+            android:layout_marginStart="2dp"
             android:backgroundTint="#7EAE25"
             android:fontFamily="@font/abeezee"
             android:text="KM"
@@ -50,6 +62,7 @@
             android:text="miles"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
+
 
     </LinearLayout>
 
@@ -78,6 +91,7 @@
 
             </RelativeLayout>
 
+
             <TextView
                 android:id="@+id/tv_display"
                 android:layout_width="match_parent"
@@ -94,9 +108,8 @@
                 android:textStyle="bold" />
 
 
+
         </RelativeLayout>
-
-
 
     </androidx.cardview.widget.CardView>
 

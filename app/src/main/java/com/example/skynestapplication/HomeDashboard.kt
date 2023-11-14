@@ -30,9 +30,21 @@ class HomeDashboard : AppCompatActivity() {
         navigate()
 
 
+        //Will take user to the Field Guide screen after clicking
+        binding.ivGuide.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         //Will take user to the Map screen after clicking
-        binding.ivHotsopt.setOnClickListener {
+        binding.ivHotspot.setOnClickListener {
             val intent = Intent(this, Hotspots::class.java)
+            startActivity(intent)
+        }
+
+        //Will take user to the Gallery screen after clicking
+        binding.ivGallery.setOnClickListener {
+            val intent = Intent(this, Gallery::class.java)
             startActivity(intent)
         }
 
@@ -124,7 +136,7 @@ class HomeDashboard : AppCompatActivity() {
 
                 }
                 R.id.i_favourite -> {
-                    val intent = Intent(this, HomeDashboard::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
 
 
