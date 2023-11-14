@@ -62,62 +62,65 @@
                     app:cornerRadius="30dp" />
 
             </LinearLayout>
-            <LinearLayout
-                android:id="@+id/lay_achievement"
-                android:layout_width="match_parent"
-                android:layout_below="@id/lay_profile"
-                android:layout_height="300dp"
-                android:orientation="vertical"
-                android:layout_marginTop="5dp"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_achieve"
                 android:backgroundTint="#748A24"
-                android:background="@drawable/back_boarder"
-                android:outlineProvider="paddedBounds">
+                android:layout_below="@id/lay_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
 
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:fontFamily="@font/abeezee"
-                    android:text="@string/achieve"
-                    android:textAlignment="center"
-                    android:textColor="#305C15"
-                    android:textSize="30sp"
-                    android:textStyle="bold"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:fontFamily="@font/abeezee"
-                    android:text="@string/level1"
-                    android:textAlignment="center"
-                    android:textColor="#305C15"
-                    android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginTop="5dp"
-                    android:contentDescription="@string/achieve"
-                    app:srcCompat="@drawable/img_bird1" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="194dp"
+                        app:srcCompat="@drawable/img_bird1"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/achieve"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/tv_achievement"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/abeezee"
-                    android:text="0 of 30 Observations"
-                    android:textAlignment="center"
-                    android:textColor="#305C15"
-                    android:textSize="25sp"
-                    android:textStyle="bold"/>
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/achieve"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            />
+                        <TextView
+                            android:id="@+id/tv_level"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/level1"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            />
+                        <TextView
+                            android:id="@+id/tv_observations"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColorHighlight="@color/white"
+                            android:layout_marginTop="8dp"
+                            android:text="0 Observations"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textColor="?android:attr/textColorSecondary"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            </LinearLayout>
             <LinearLayout
                 android:id="@+id/lay_favourite"
                 android:layout_width="170dp"
                 android:layout_height="125dp"
-                android:layout_below="@id/lay_achievement"
+                android:layout_below="@id/card_achieve"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="90dp"
@@ -145,7 +148,7 @@
                 android:id="@+id/lay_gallery"
                 android:layout_width="170dp"
                 android:layout_height="125dp"
-                android:layout_below="@id/lay_achievement"
+                android:layout_below="@id/card_achieve"
                 android:layout_marginStart="222dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="90dp"

@@ -1,6 +1,7 @@
 package com.example.skynestapplication
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
         setContentView(binding.root)
+        navigate()
 
         val recyclerView = findViewById<RecyclerView>(R.id.RecViewFieldGuide)
 
@@ -55,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                     Log.i(LOGGING_TAG, "consumeJson: sciName$sciName")
                     observationObject.sciName = sciName
 
+
                     birdsList.add(observationObject)
                 }
 
@@ -64,5 +67,37 @@ class MainActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+    }
+
+    //--------------------------------------------------------------------------------------------------
+    //Reference: Mafia Codes
+    //URL: https://www.youtube.com/watch?v=oeKtwd1DBfg
+    //Use: The bottom navigation bar will allow users to navigate through app
+    private fun navigate() {
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.i_home -> {
+                    val intent = Intent(this, HomeDashboard::class.java)
+                    startActivity(intent)
+
+                }
+
+                R.id.i_profile -> {
+                    val intent = Intent(this, Profile::class.java)
+                    startActivity(intent)
+
+                }
+                R.id.i_favourite -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+
+
+                }
+                else -> {}
+            }
+            true
+        }
+
     }
 }
