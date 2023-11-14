@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="70dp"
             android:text="An app catered to both beginners and experienced birders, fostering a sense of community and contributing to the broader field of ornithology and bird conservation."
             android:textAlignment="center"
             android:textColor="@color/white"
